@@ -11,9 +11,9 @@ on:
 
 env:
   GCP_PROJECT_ID: job-intelligent-rec
-  GCP_REGION: europe-west1
+  GCP_REGION: europe-west9
   SERVICE_NAME: job-intelligent-app
-  IMAGE_NAME: europe-west1-docker.pkg.dev/job-intelligent-rec/job-intelligent-repo/job-intelligent-app
+  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-rec/job-intelligent-repo/job-intelligent-app
 
 jobs:
   build-and-deploy:
