@@ -7,7 +7,7 @@ on:
   # push:
   #   branches:
   #     - develop
-  workflow_dispatch:  # Déclenchement manuel uniquement (bouton "Run workflow" sur GitHub)
+  workflow_dispatch  # Déclenchement manuel uniquement (bouton "Run workflow" sur GitHub)
 
 env:
   GCP_PROJECT_ID: job-intelligent-rec
