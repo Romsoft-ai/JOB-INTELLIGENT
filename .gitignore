@@ -3,7 +3,7 @@ utile.md
 GCP_SA_KEY_REC.json # Ignorer la clé du compte de service GCP-recette
 GCP_SA_KEY_PROD.json # Ignorer la clé du compte de service GCP-production
 
-# 🐍 Python
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -15,14 +15,14 @@ dist/
 build/
 *.whl
 
-# 🌐 Environnements virtuels
+# Environnements virtuels
 .env
 .venv/
 env/
 venv/
 ENV/
 
-# 📊 Données
+# Données
 *.csv
 *.xlsx
 *.xls
@@ -32,7 +32,7 @@ ENV/
 *.db
 data/
 
-# 📄 Fichiers temporaires / OS
+# Fichiers temporaires / OS
 .DS_Store
 Thumbs.db
 *.log
@@ -41,22 +41,22 @@ Thumbs.db
 *.swp
 *~
 
-# 🔑 Secrets / Clés API
+# Secrets / Clés API
 .env.local
 .env.production
 *.key
 *.pem
 secrets/
 
-# 📓 Jupyter Notebooks checkpoints
+# Jupyter Notebooks checkpoints
 .ipynb_checkpoints/
 
-# 🧪 Tests / Coverage
+# Tests / Coverage
 .coverage
 htmlcov/
 .pytest_cache/
 
-# 💻 IDE / Éditeurs
+# IDE / Éditeurs
 .vscode/
 .idea/
 *.code-workspace
