@@ -9,7 +9,7 @@ on:
       - develop
 
 env:
-  GCP_PROJECT_ID: Job-Intelligent-rec
+  GCP_PROJECT_ID: job-intelligent-rec
   GCP_REGION: europe-west1
   SERVICE_NAME: job-intelligent-app
   IMAGE_NAME: europe-west1-docker.pkg.dev/job-intelligent-rec/job-intelligent-repo/job-intelligent-app
