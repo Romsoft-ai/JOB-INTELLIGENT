@@ -19,7 +19,7 @@ L'utilisateur uploade son CV et l'application recherche automatiquement, en temp
 
 ## Installation
 
-> *À venir.*
+> *À venir.*    
 
 ## Auteurs
 
