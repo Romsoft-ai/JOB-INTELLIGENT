@@ -2,6 +2,7 @@
 utile.md
 GCP_SA_KEY_REC.json # Ignorer la clé du compte de service GCP-recette
 GCP_SA_KEY_PROD.json # Ignorer la clé du compte de service GCP-production
+etapes.txt # Ignorer les étapes de développement de l'application
 
 # Python
 __pycache__/
