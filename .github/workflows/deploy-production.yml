@@ -4,9 +4,10 @@
 name: Deploy to Production (Cloud Run)
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:  # Déclenchement manuel uniquement (bouton "Run workflow" sur GitHub)
 
 env:
   GCP_PROJECT_ID: job-intelligent-prod
