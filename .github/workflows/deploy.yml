@@ -24,7 +24,7 @@ jobs:
       - name: Authentification GCP
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets['GCP_SA_KEY_' + env.ENV_NAME | upper] }}
+          credentials_json: ${{ secrets.GCP_SA_KEY_${{ env.ENV_NAME }} }}
 
       # 3. Configuration du SDK Google Cloud
       - name: Setup Google Cloud SDK
