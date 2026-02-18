@@ -1,14 +1,14 @@
-name: Deploy
+name: Deploy Cloudrun
 
 on:
   workflow_dispatch  # Déclenchement manuel uniquement 
 
 env:
   ENV_NAME : ${{ case(github.ref == 'main', 'prod', 'rec') }}
-  GCP_PROJECT_ID: job-intelligent-${{ env.ENV_NAME }}
+  GCP_PROJECT_ID: job-intelligent-${{ case(github.ref == 'main', 'prod', 'rec') }}
   GCP_REGION: europe-west9
   SERVICE_NAME: job-intelligent-app
-  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-${{ env.ENV_NAME }}/job-intelligent-repo/job-intelligent-app
+  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-${{ case(github.ref == 'main', 'prod', 'rec') }}/job-intelligent-repo/job-intelligent-app
 
 jobs:
   build-and-deploy:
