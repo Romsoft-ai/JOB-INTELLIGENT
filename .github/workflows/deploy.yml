@@ -1,14 +1,14 @@
 name: Deploy Cloudrun
 
 on:
-  workflow_dispatch  # Déclenchement manuel uniquement 
+  workflow_dispatch:  # Déclenchement manuel uniquement 
 
 env:
-  ENV_NAME : ${{ case(github.ref == 'main', 'prod', 'rec') }}
-  GCP_PROJECT_ID: job-intelligent-${{ case(github.ref == 'main', 'prod', 'rec') }}
+  ENV_NAME : ${{ github.ref == 'refs/heads/main' && 'prod' || 'rec' }}
+  GCP_PROJECT_ID: job-intelligent-${{ github.ref == 'refs/heads/main' && 'prod' || 'rec' }}
   GCP_REGION: europe-west9
   SERVICE_NAME: job-intelligent-app
-  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-${{ case(github.ref == 'main', 'prod', 'rec') }}/job-intelligent-repo/job-intelligent-app
+  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-${{ github.ref == 'refs/heads/main' && 'prod' || 'rec' }}/job-intelligent-repo/job-intelligent-app
 
 jobs:
   build-and-deploy:
@@ -24,7 +24,7 @@ jobs:
       - name: Authentification GCP
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY_${{ env.ENV_NAME }} }}
+          credentials_json: ${{ github.ref == 'refs/heads/main' && secrets.GCP_SA_KEY_PROD || secrets.GCP_SA_KEY_REC }}
 
       # 3. Configuration du SDK Google Cloud
       - name: Setup Google Cloud SDK
