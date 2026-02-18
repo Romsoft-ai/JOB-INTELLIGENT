@@ -1,8 +1,19 @@
-fastapi
-uvicorn[standard]
-streamlit
-python-dotenv
-sqlalchemy
-aiosqlite
-httpx
-pydantic
+# Backend
+fastapi==0.129.0
+uvicorn==0.41.0
+sqlalchemy  # (à compléter avec la version installée si besoin)
+
+# Frontend
+streamlit==1.54.0
+
+# Utilitaires
+requests  # (à compléter si utilisé pour la communication Streamlit <-> FastAPI)
+
+# Data
+pandas==2.3.3
+numpy==2.4.2
+
+# Autres dépendances installées automatiquement
+starlette==0.52.1
+pydantic==2.12.5
+anyio==4.12.1
