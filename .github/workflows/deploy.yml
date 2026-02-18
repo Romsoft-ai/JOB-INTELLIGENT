@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  workflow_dispatch  # Déclenchement manuel uniquement 
+
+env:
+  ENV_NAME : ${{ case(github.ref == 'main', 'prod', 'rec') }}
+  GCP_PROJECT_ID: job-intelligent-${{ env.ENV_NAME }}
+  GCP_REGION: europe-west9
+  SERVICE_NAME: job-intelligent-app
+  IMAGE_NAME: europe-west9-docker.pkg.dev/job-intelligent-${{ env.ENV_NAME }}/job-intelligent-repo/job-intelligent-app
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Récupérer le code source
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # 2. Authentification à GCP
+      - name: Authentification GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets['GCP_SA_KEY_' + env.ENV_NAME | upper] }}
+
+      # 3. Configuration du SDK Google Cloud
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+
+      # 4. Configuration de Docker pour Artifact Registry
+      - name: Configuration Docker pour Artifact Registry
+        run: gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+
+      # 5. Build de l'image Docker
+      - name: Build de l'image Docker
+        run: |
+          docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+          docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ${{ env.IMAGE_NAME }}:latest
+
+      # 6. Push de l'image vers Artifact Registry
+      - name: Push de l'image Docker
+        run: |
+          docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push ${{ env.IMAGE_NAME }}:latest
+
+      # 7. Déploiement sur Cloud Run
+      - name: Déploiement sur Cloud Run (Recette)
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ env.SERVICE_NAME }}
+          region: ${{ env.GCP_REGION }}
+          image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          flags: '--allow-unauthenticated'
+          
