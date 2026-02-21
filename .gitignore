@@ -1,1 +1,66 @@
+# 📝 Fichiers personnels
 utile.md
+GCP_SA_KEY_REC.json # Ignorer la clé du compte de service GCP-recette
+GCP_SA_KEY_PROD.json # Ignorer la clé du compte de service GCP-production
+etapes.txt # Ignorer les étapes de développement de l'application
+app/tmp_upload/ # Ignorer les cv upload et sauvegarder temporairement.
+*.pdf
+*.docx
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Environnements virtuels
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Données
+*.csv
+*.xlsx
+*.xls
+*.json
+*.parquet
+*.sqlite
+*.db
+data/
+
+# Fichiers temporaires / OS
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Secrets / Clés API
+.env.local
+.env.production
+*.key
+*.pem
+secrets/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Tests / Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# IDE / Éditeurs
+.vscode/
+.idea/
+*.code-workspace

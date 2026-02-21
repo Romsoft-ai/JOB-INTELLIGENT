@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+}
+h1 {
+    color: #2b4162;
+    margin-bottom: 0.2em;
+}
+h2 {
+    color: #4f5d75;
+    font-size: 1.2em;
+    margin-top: 0;
+}
+.upload-section {
+    margin: 32px 0 16px 0;
+}
+#cv-upload {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+#upload-btn {
+    background: #2b4162;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 8px;
+}
+#upload-btn:hover {
+    background: #415a77;
+}
+#upload-status {
+    margin-top: 10px;
+    color: #008000;
+}
+#results {
+    margin-top: 30px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Intelligent App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Job Intelligent App</h1>
+        <h2>Trouvez les offres d'emploi qui correspondent à votre profil</h2>
+        <hr>
+        <div class="upload-section">
+            <label for="cv-upload">Déposez votre CV ici :</label>
+            <input type="file" id="cv-upload" accept=".pdf,.docx">
+            <button id="upload-btn">Uploader</button>
+            <div id="upload-status"></div>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
