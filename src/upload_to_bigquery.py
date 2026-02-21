@@ -4,7 +4,7 @@ from google.cloud import bigquery
 
 # === CONFIGURATION ===
 GCP_KEY_PATH = "bq-uploader-key.json"  # Chemin vers la clé de service
-PROJECT_ID = "job-intelligent-rec"      # Id du projet sur rec sur GCP
+PROJECT_ID = "job-intelligent-rec"      # Remplace par l'ID de ton projet GCP
 DATASET_ID = "Job_offers"              # Nom du dataset BigQuery
 TABLE_ID = "offres_france_travail"     # Nom de la table
 JSON_PATH = "data/2026-02-18.json"     # Fichier à uploader

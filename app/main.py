@@ -3,7 +3,6 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from typing import Optional
-from app.services.cv_keyword_extractor import extract_keywords_from_cv
 from app.services.job_search_service import JobSearchService
 from app.services.france_travail_source import FranceTravailSource
 import asyncio
